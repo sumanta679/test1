@@ -15,8 +15,8 @@ def getDatabaseString():
         return error_400_http_response(ACCESS_NOT_GRANTED_ERROR_STRING)
     username = 'postgre'
     password = 'postgre'
-    db_server = os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL')
-    db_port = os.environ.get('OPENSHIFT_POSTGRESQL_DB_PORT')
+    db_server = 'postgresql'
+    db_port = '5432'
     database_name = testdb
     return "postgresql://"+username+":"+password+"@"+db_server+":"+db_port+"/"+database_name
 
@@ -32,16 +32,14 @@ def build_json(query_result_list, page=0):
 
 
 @route('/')
-def get_tables():
+def get_schemas():
 
     db_string = getDatabaseString()
 
-    schema_name = 'postgres'
     engine = create_engine(db_string)
     inspector = inspect(engine)
-    #schema_names = inspector.get_schema_names()
-    table_names = inspector.get_table_names(schema_name)
-    json_output = build_json(table_names)
+    schema_names = inspector.get_schema_names()
+    json_output = build_json(schema_names)
     response.status = 200
     response.set_header('Content-Type', 'application/json')
     return json_output            
