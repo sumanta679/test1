@@ -11,8 +11,6 @@ from sqlalchemy.orm import sessionmaker
 Generate a DB connection string
 '''
 def getDatabaseString():
-    if not is_db_access_permitted():
-        return error_400_http_response(ACCESS_NOT_GRANTED_ERROR_STRING)
     username = 'postgre'
     password = 'postgre'
     db_server = 'postgresql'
