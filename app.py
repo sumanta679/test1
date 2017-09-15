@@ -26,7 +26,7 @@ def build_json(query_result_list, page=0):
         dictionary = {"count": 0, "page": page, "result": []}
     dictionary["count"] = len(query_result_list)
     dictionary["result"] = query_result_list
-    return json.dumps(dictionary, indent=2, default=json_serializer)
+    return json.dumps(dictionary, indent=2)
 
 
 @route('/')
