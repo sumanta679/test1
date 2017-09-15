@@ -1,8 +1,7 @@
 FROM ubuntu:16.10
 MAINTAINER Sumanta Saha "sumanta679@gmail.com"
 
-ARG EXPOSED_PORT=5000
-ENV EXPOSED_PORT $EXPOSED_PORT
+ENV EXPOSED_PORT 5000
 
 ENV UPDT apt-get -y update
 ENV INST apt-get -y install
