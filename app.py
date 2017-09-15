@@ -15,7 +15,7 @@ def getDatabaseString():
     password = 'postgre'
     db_server = 'postgresql'
     db_port = '5432'
-    database_name = testdb
+    database_name = 'testdb'
     return "postgresql://"+username+":"+password+"@"+db_server+":"+db_port+"/"+database_name
 
 
