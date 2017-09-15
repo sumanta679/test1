@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from bottle import route, run, response, request
 
-import psycopg
+import psycopg2
 import json
 import datetime
 from sqlalchemy import create_engine, Table, MetaData, text, inspect
